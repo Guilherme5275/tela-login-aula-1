@@ -1,27 +1,17 @@
 [
     {
-<<<<<<< HEAD
         "name": "Guilherme",
         "email": "guilherme@santos.com.br",
         "password": "12345678"
-=======
-        "name": "Iasmyn",
-        "email": "iasmyn@senai.com.br",
-        "password": "21112007"
->>>>>>> e7f91f7649b56ba8ba6ea9cd8f5dc8c410db5461
     },
     {
         "name": "Renan",
         "email": "renan@senai.com.br",
-<<<<<<< HEAD
         "password": "renan"
     },
     {
         "name": "Julianelli",
         "emai": "julianelli@senai.com.br",
         "password": "ju1234"
-=======
-        "password": "Renan"
->>>>>>> e7f91f7649b56ba8ba6ea9cd8f5dc8c410db5461
     }
 ]

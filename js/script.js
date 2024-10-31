@@ -9,22 +9,15 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     let errors = [];
 
-<<<<<<< HEAD
     const FileName = e.target.baseURI.split("/").pop();
 
     if (FileName === "register.html") {
-=======
-    const fileName = e.target.baseURI.split("/").pop();
-
-    if (fileName === "register.html"){
->>>>>>> e7f91f7649b56ba8ba6ea9cd8f5dc8c410db5461
         errors = validateRegisterForm(
             name_input.value,
             email_input.value,
             password_input.value,
             repeat_password_input.value
         );
-<<<<<<< HEAD
     } else {
         errors = validateLoginForm(
             email_input.value,
@@ -39,22 +32,6 @@ form.addEventListener('submit', (e) => {
             );
             if (!isValidLogin) {
                 errors.push('Email ou senha incorretos');
-=======
-    } else{
-        errors = validateloginform(
-            email_input.value,
-            password_input.value
-        );
-    
-        //verificar login
-        if (errors.length === 0){
-            const isvalidlogin = verifyLogin(
-                email_input.value,
-                password_input.value
-            );
-            if(!isvalidlogin){
-                errors.push('Email ou senha incorretas');
->>>>>>> e7f91f7649b56ba8ba6ea9cd8f5dc8c410db5461
             }
         }
     }
@@ -65,12 +42,7 @@ form.addEventListener('submit', (e) => {
         return
     }
 
-<<<<<<< HEAD
     window.location.href = 'home.html';
-=======
-    window.location.href = "home.html"
-
->>>>>>> e7f91f7649b56ba8ba6ea9cd8f5dc8c410db5461
 });
 
 function validateloginform(email, password) {
@@ -81,14 +53,8 @@ function validateloginform(email, password) {
         email_input.parentElement.classList.add("incorrect");
     }
 
-<<<<<<< HEAD
     if (password === "" || email == null) {
         errors.push('Senha é obrigatório');
-=======
-
-    if (password === "" || password == null) {
-        errors.push('Senha é obrigatória');
->>>>>>> e7f91f7649b56ba8ba6ea9cd8f5dc8c410db5461
         password_input.parentElement.classList.add("incorrect");
     }
 
@@ -98,20 +64,12 @@ function validateloginform(email, password) {
 const allInputs = [
     name_input,
     email_input,
-<<<<<<< HEAD
     password_input,[
     repeat_password_input
     ]
 ].filter((input) => input != null);
 
 allInputs.forEach((input) => {
-=======
-    password_input,
-    repeat_password_input,
-  ].filter((input) => input != null);
-  
-  allInputs.forEach((input) => {
->>>>>>> e7f91f7649b56ba8ba6ea9cd8f5dc8c410db5461
     input.addEventListener("input", () => {
       if (input.parentElement.classList.contains("incorrect")) {
         input.parentElement.classList.remove("incorrect");
