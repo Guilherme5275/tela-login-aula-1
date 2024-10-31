@@ -2,7 +2,7 @@ const form = document.getElementById('form');
 const name_input = document.getElementById('name-input');
 const email_input = document.getElementById('email-input');
 const password_input = document.getElementById('password-input');
-const repeat_password_input = document.getElementById('repat-password-input');
+const repeat_password_input = document.getElementById('repeat-password-input');
 const error_message = document.getElementById('error-message');
 
 form.addEventListener('submit', (e) => {
@@ -12,7 +12,7 @@ form.addEventListener('submit', (e) => {
     const fileName = e.target.baseURI.split("/").pop();
 
     if (fileName === "register.html"){
-        erros = validateRegisterForm(
+        errors = validateRegisterForm(
             name_input.value,
             email_input.value,
             password_input.value,
@@ -63,8 +63,10 @@ function validateloginform(email, password) {
 }
 
 const allInputs = [
+    name_input,
     email_input,
     password_input,
+    repeat_password_input,
   ].filter((input) => input != null);
   
   allInputs.forEach((input) => {
@@ -79,7 +81,7 @@ const allInputs = [
   // Verificar login
 function verifyLogin(email, password) {
     const request = new XMLHttpRequest();
-    request.open("GET", "./data/users.json", false);
+    request.open("GET", "./data/user.json", false);
     request.send(null);
 
     localStorage.removeItem("userEmail");
@@ -99,3 +101,39 @@ function verifyLogin(email, password) {
         return false;
     }
 }
+function validateRegisterForm(name, email, password, repeatPassword) {
+    let errors = [];
+  
+    if (name === "" || name == null) {
+      errors.push("Nome é obrigatório");
+      name_input.parentElement.classList.add("incorrect");
+    }
+  
+    if (email === "" || email == null) {
+      errors.push("Email é obrigatório");
+      email_input.parentElement.classList.add("incorrect");
+    }
+  
+    if (password === "" || password == null) {
+      errors.push("Senha é obrigatória");
+      password_input.parentElement.classList.add("incorrect");
+    } else {
+      if (password.length < 8) {
+        errors.push("Senha deve ter no mínimo 8 caracteres");
+        password_input.parentElement.classList.add("incorrect");
+      }
+    }
+  
+    if (repeatPassword === "" || repeatPassword == null) {
+      errors.push("Repita a senha");
+      repeat_password_input.parentElement.classList.add("incorrect");
+    } else {
+      if (password !== repeatPassword) {
+        errors.push("Senhas não conferem");
+        password_input.parentElement.classList.add("incorrect");
+        repeat_password_input.parentElement.classList.add("incorrect");
+      }
+    }
+  
+    return errors;
+  }
